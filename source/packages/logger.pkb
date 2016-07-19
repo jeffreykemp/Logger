@@ -1182,6 +1182,7 @@ as
     $if $$no_op $then
       null;
     $else
+      apex_debug.error(p_scope || ': ' || p_text);
       if ok_to_log(logger.g_error) then
         get_debug_info(
           p_callstack => dbms_utility.format_call_stack,
@@ -1254,6 +1255,7 @@ as
     $if $$no_op $then
       null;
     $else
+      apex_debug.error(p_scope || ': ' || p_text);
       if ok_to_log(logger.g_permanent) then
         log_internal(
           p_text => p_text,
@@ -1294,6 +1296,7 @@ as
     $if $$no_op $then
       null;
     $else
+      apex_debug.warn(p_scope || ': ' || p_text);
       if ok_to_log(logger.g_warning) then
         log_internal(
           p_text => p_text,
@@ -1364,6 +1367,7 @@ as
     $if $$no_op $then
       null;
     $else
+      apex_debug.info(p_scope || ': ' || p_text);
       if ok_to_log(logger.g_information) then
         log_internal(
           p_text => p_text,
@@ -1436,6 +1440,7 @@ as
     $if $$no_op $then
       null;
     $else
+      apex_debug.trace(p_scope || ': ' || p_text);
       if ok_to_log(logger.g_debug) then
         log_internal(
           p_text => p_text,
